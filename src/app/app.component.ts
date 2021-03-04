@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   goToRegister() {
 
     this.router.navigate(['register']);
-    
+
     // this.toastr.success('Employee Added successfully', 'Success');
   }
 
@@ -34,9 +34,13 @@ export class AppComponent implements OnInit {
   }
 
   forgotPassword() {
-    
+
     this.router.navigate(['profile'])
   }
+
+
+
+
 
 
 
