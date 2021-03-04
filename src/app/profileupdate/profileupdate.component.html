@@ -1,0 +1,30 @@
+<form [formGroup]="updateForm" (ngSubmit)="updateUser()">
+    <div class="container">
+        <h1> Update User Profile</h1>
+
+        <hr>
+
+        <label for="fristname"><b>FirstName</b></label>
+        <input type="text" placeholder="Enter your FirstName" formControlName="fristname" required>
+
+        <label for="lastname"><b>LastName</b></label>
+        <input type="text" placeholder="Enter your LastName" formControlName="lastname" required>
+
+
+        <label for="phone"><b>phone</b></label>
+        <input type="text" placeholder="Enter your Phone" formControlName="phone" required>
+
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter  your Email" formControlName="email" autocomplete="false" required>
+
+        <hr>
+
+
+        <button type="submit" class="registerbtn">Update Profile</button>
+    </div>
+
+    <!-- <div class="container signin">
+        <p>Already have an account? <a href="#">Sign in</a>.</p>
+    </div> -->
+</form>
