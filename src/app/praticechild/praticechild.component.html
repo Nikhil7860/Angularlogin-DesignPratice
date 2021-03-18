@@ -1,0 +1,11 @@
+<h1>Data Coming from parent </h1>
+Email :--> {{childMessage}}
+<br />
+Password :--> {{child}}
+
+<h4>Form in Child Component</h4>
+
+Email: <input type="text" [(ngModel)]="childMessage" [value]="childMessage" />
+Password: <input type="password" [(ngModel)]="child" [value]="child" />
+
+<button (click)="submit()">Submit</button>

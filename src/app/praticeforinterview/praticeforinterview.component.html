@@ -1,0 +1,18 @@
+<h1>Form in Parent Component</h1>
+{{title}}
+<br />
+
+Email: <input type="text" [(ngModel)]="nikhil" [value]="nikhil" />
+Password: <input type="password" [(ngModel)]="arvind" [value]="arvind" />
+
+<button (click)="submit()">Submit</button>
+
+{{arvind}}
+<br />
+<!-- covred thing in upper code is ngModel,interpolation,propertyBinding,eventbinding -->
+
+<app-praticechild [childMessage]="nikhil" [child]="arvind"></app-praticechild>
+
+<app-praticechildtoparent></app-praticechildtoparent>
+
+<button (click)="hello()"> Hello Click</button>

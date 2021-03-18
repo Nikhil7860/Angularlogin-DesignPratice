@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { RegisteruserComponent } from './registeruser/registeruser.component';
 import { ProfileupdateComponent } from './profileupdate/profileupdate.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { PraticeforinterviewComponent } from './praticeforinterview/praticeforinterview.component';
+import { PraticechildComponent } from './praticechild/praticechild.component';
+import { PraticechildtoparentComponent } from './praticechildtoparent/praticechildtoparent.component';
 
 
 @NgModule({
@@ -19,7 +23,11 @@ import { ProfileComponent } from './profile/profile.component';
     AppComponent,
     RegisteruserComponent,
     ProfileupdateComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent,
+    PraticeforinterviewComponent,
+    PraticechildComponent,
+    PraticechildtoparentComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +45,10 @@ import { ProfileComponent } from './profile/profile.component';
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }

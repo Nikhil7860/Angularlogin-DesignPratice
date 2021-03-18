@@ -7,6 +7,9 @@ const { passwordby } = require('../passwordBycrypt/passwordbycrypt')
 const { checkUser } = require('../passwordBycrypt/passwordbycrypt');
 var bcrypt = require('bcrypt');
 
+const { mail } = require('../Email/email')
+
+
 
 
 const registerForLogin = async (req, res) => {
@@ -14,7 +17,7 @@ const registerForLogin = async (req, res) => {
         var registerId
         registerId = _.pick(req.body, ["id", "firstname", "lastname", "email", "password", "phone"])
         let email = `select email from register where email ='${registerId.email}'`
-        console.log(registerId)
+        console.log(email)
         let check = await myquery(email)
 
         if (check.length > 0) {
@@ -33,6 +36,7 @@ const registerForLogin = async (req, res) => {
 
 
 const login = async (req, res) => {
+
 
     var login
     login = _.pick(req.body, ["email", "password"]);
@@ -55,7 +59,7 @@ const update = async (req, res) => {
     console.log(req.body)
     var update
     update = _.pick(req.body, ["id", "firstname", "lastname", "email", "password", "phone"]);
-    let updateQuery = `UPDATE register SET firstname='${update.firstname}', lastname='${update.lastname}', email='${update.email}',password='${update.password}', phone=${update.phone} WHERE id='${update.id}';`
+    let updateQuery = `UPDATE register SET firstname='${update.firstname}', lastname='${update.lastname}', email='${update.email}',password='${passwordby(update.password)}', phone='${update.phone}' WHERE id='${update.id}';`
     // let data = await myquery(updateQuery, [update.firstname, update.lastname, update.email, update.password, update.phone, update.id])
     console.log(updateQuery)
     let data = await myquery(updateQuery)
@@ -75,6 +79,22 @@ const deleted = async (req, res) => {
 }
 
 
+const logout = async (req, res) => {
+
+}
+
+
+const forgotPass = async (req, res) => {
+
+    var forgot
+    forgot = _.pick(req.body, ["email", "password"])
+    await mail(forgot.email)
+    let forgotPassword = `UPDATE register SET password='${forgot.password}' WHERE email='${forgot.email}';`
+    let password = await myquery(forgotPassword)
+    console.log(password)
+    res.send('Email sent')
+}
+
 
 
 module.exports = {
@@ -82,5 +102,7 @@ module.exports = {
     registerForLogin,
     login,
     update,
-    deleted
+    deleted,
+    logout,
+    forgotPass
 }

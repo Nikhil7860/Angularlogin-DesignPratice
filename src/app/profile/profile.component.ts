@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+import { RegistrationService } from '../SharedServices/registration.service'
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
+    private register: RegistrationService
   ) { }
 
   ngOnInit(): void {
@@ -30,11 +31,11 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['profile/update'])
     // console.log(id, 'id in the update Register function ')
 
-    // return this.log.getEployee(id).subscribe(
+    // return this.register.showUserDetails(id).subscribe(
     //   (result) => {
     //     if (result) {
     //       this.getEmplo = result;
-    //       this.editRegister.controls.empid.setValue(this.getEmplo[0].empid);
+    //       this.profile.controls.empid.setValue(this.getEmplo[0].empid);
     //       this.editRegister.controls.name.setValue(this.getEmplo[0].name);
     //       this.editRegister.controls.employeecode.setValue(this.getEmplo[0].employeecode);
     //       this.editRegister.controls.salary.setValue(this.getEmplo[0].salary);
