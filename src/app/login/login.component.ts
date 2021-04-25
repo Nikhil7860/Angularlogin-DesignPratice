@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
     this.loginForm = this.formBuilder.group({
       email: [''],
       pass: ['']
@@ -64,6 +65,5 @@ export class LoginComponent implements OnInit {
     // this.router.navigate(['profile'])
   }
 
-
-
+  
 }

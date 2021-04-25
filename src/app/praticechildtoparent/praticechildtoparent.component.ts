@@ -6,6 +6,7 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
   styleUrls: ['./praticechildtoparent.component.css']
 })
 export class PraticechildtoparentComponent implements OnInit {
+  
   @ViewChild(PraticechildtoparentComponent) child: any;
   message = {
     firstName: 'nikhil',

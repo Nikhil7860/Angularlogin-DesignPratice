@@ -28,11 +28,11 @@ export class PraticeforinterviewComponent implements OnInit {
   submit() {
     if (!this.nikhil || !this.arvind) {
       console.log('submiting failed')
-      debugger
+      
     }
     else {
       console.log('submiting pass')
-      debugger
+      
     }
 
   }
