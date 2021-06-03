@@ -8,6 +8,7 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 export class PraticechildtoparentComponent implements OnInit {
   
   @ViewChild(PraticechildtoparentComponent) child: any;
+  
   message = {
     firstName: 'nikhil',
     lastName: 'Arora'
