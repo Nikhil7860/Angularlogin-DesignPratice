@@ -1,5 +1,21 @@
-<div style="margin-top: 180px; margin-left: 620px; ">
-    <h1 style="color: blue;margin-left: 85px;"> Login </h1>
+<button (click)="removeComp1()">Remove Component</button>
+<input type="text" placeholder="Enter here" #Val />
+<button type="submit" (click)="upVal(Val)">Submit Value</button>
+<app-profile *ngIf="comp1" [myVal]="value" (hello)="onAddedprod($event)">ng-content:{{value}} </app-profile>
+
+<app-profileupdate></app-profileupdate>
+
+
+<div *ngIf="hello">
+    <h1>Hello World {{hello}}</h1>
+</div>
+
+
+
+
+
+<div style=" margin-top: 180px; margin-left: 620px; ">
+    <h1 style=" color: blue;margin-left: 85px;"> Login </h1>
     <br />
     <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="form-group" style="width: 300px;">

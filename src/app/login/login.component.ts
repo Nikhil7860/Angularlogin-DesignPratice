@@ -12,21 +12,47 @@ import { LoginService } from '../SharedServices/login.service'
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
+  value = ''
+  comp1: boolean = true
+  hello: any
+  userName: string = "nikhilarora"
+
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private log: LoginService
-  ) { }
+  ) {
+    {
+      this.log.userName.subscribe(val => this.userName = val)
+      console.log('constructure called')
+    }
+  }
 
   ngOnInit(): void {
-    
     this.loginForm = this.formBuilder.group({
       email: [''],
       pass: ['']
     })
   }
 
+  updateUserName(val: any) {
+    this.log.userName.next(val.value)
+  }
+
+  upVal(val: any) {
+    this.value = val.value
+  }
+
+
+  onAddedprod(eve: any) {
+    this.hello = eve
+  }
+
+
+  removeComp1() {
+    this.comp1 = false
+  }
 
   goToRegister() {
 
@@ -60,10 +86,14 @@ export class LoginComponent implements OnInit {
 
   }
 
+
+
+
+
   forgotPassword() {
 
     // this.router.navigate(['profile'])
   }
 
-  
+
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from '../SharedServices/login.service';
 @Component({
   selector: 'app-profileupdate',
   templateUrl: './profileupdate.component.html',
@@ -10,11 +11,17 @@ import { ToastrService } from 'ngx-toastr';
 export class ProfileupdateComponent implements OnInit {
 
   updateForm: FormGroup = new FormGroup({});
+  userName: string = "nikhilarora"
+
   formData = new FormData();
   constructor(private router: Router,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService,) { }
-
+    private toastr: ToastrService,
+    private loginSer: LoginService
+  ) {
+    this.loginSer.userName.subscribe(val => this.userName = val)
+    console.log('constructure called')
+  }
 
   ngOnInit(): void {
     this.updateForm = this.formBuilder.group({
@@ -24,6 +31,13 @@ export class ProfileupdateComponent implements OnInit {
       email: [''],
       pass: [''],
     })
+  }
+
+
+
+  updateUserName(val: any) {
+    this.userName = val.value
+    this.loginSer.userName.next(val.value)
   }
 
 

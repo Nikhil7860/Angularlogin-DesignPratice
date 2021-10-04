@@ -1,4 +1,15 @@
-<form [formGroup]="profile" (ngSubmit)="goToUpdateProfile()">
+<div class="box" style="background-color: yellow;">
+    <h1>I am in Profile component</h1>
+
+    input Value :<strong>{{myVal}}</strong>
+    <br />
+    ng-content :<ng-content></ng-content>
+</div>
+
+
+<button (click)="onAddProduct()">ClickMe for add Product</button>
+
+<!-- <form [formGroup]="profile" (ngSubmit)="goToUpdateProfile()">
     <div class="container">
         <h1> User Profile</h1>
         <button class="btn btn-primary" style="width: 84px; margin-left: 833px;">edit</button>
@@ -25,7 +36,5 @@
 
     </div>
 
-    <!-- <div class="container signin">
-        <p>Already have an account? <a href="#">Sign in</a>.</p>
-    </div> -->
-</form>
+
+</form> -->
